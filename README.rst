@@ -2,4 +2,4 @@
 CloudCarver
 ============
 
-Framework for developing custom resources for AWS CloudFormation.
+Framework for developing custom resource providers for AWS CloudFormation.
