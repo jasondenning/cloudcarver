@@ -53,4 +53,4 @@ class Handler(object):
                 log.info("Generated physical_resource_id: %s " %
                     self.physical_resource_id)
             else:
-                physical_resource_id = self.__name__ + self.short_uuid()
+                physical_resource_id = self.__name__ + ''
