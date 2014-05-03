@@ -9,7 +9,7 @@ log = logging.getLogger(__name__)
 
 class Handler(object):
     """
-    Base Handler Class
+    Handler - Base Handler Class
 
     Takes care of typical initialization (setting self.request) and physical
     resource id generation.
@@ -63,10 +63,10 @@ class Handler(object):
         else:
             log.debug("Got %s request - using physical resource id from request" %
                 self._request_type)
-            physical_resource_id = self.request['PhysicalResourceId']
+            physical_id = self.request['PhysicalResourceId']
             log.info("Got physical resource id %s from request")
 
-        return physical_resource_id
+        return physical_id
 
 
     def _generate_physical_id(self):
