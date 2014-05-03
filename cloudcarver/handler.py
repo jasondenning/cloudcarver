@@ -15,14 +15,14 @@ class Handler(object):
     resource id generation.
 
     You can either override the standard action methods (create, update, delete),
-    or implement them as 'do_create()', 'do_update()', and 'do_delete()'; in the
+    or implement them as '_create()', '_update()', and '_delete()'; in the
     latter case calls to these methods will be wrapped with logging.
 
     A physical resource id will be generated in the 'create' case, otherwise the
     physical_resource_id from the request will be used.
 
-    As with create(), et. al.,  _generate_resource_id() may be defined as
-    _generate_physical_id or as _do_generate_physical_id.
+    As with create(), et. al.,  generate_physical_id() may be defined as
+    generate_physical_id or as _generate_physical_id.
     """
 
     def __init__(self, request):
@@ -90,3 +90,14 @@ class Handler(object):
         log.debug("Successfuly generated physical resource id: %s " % physical_id)
         return physical_id
 
+
+    def create(self):
+        """
+        Wrapper around _create
+        :return:
+        """
+        log.info("Running create action")
+        if hasattr(self, '_create'):
+            log.debug("Calling %s._create()" % self.__name__)
+            self._create()
+            
