@@ -1,4 +1,4 @@
-from cloudcarver.errors import HandlerError
+from cloudcarver.error import HandlerError
 
 __author__ = 'jdenning'
 import logging
